@@ -1,9 +1,8 @@
-div {
+.window {
 	display: flex;
-	width: 100%;
+	width: 700px;
 	height: 100%;
 	justify-content: flex-start;
-	flex-direction: column;
     align-items: flex-start;
 }
 

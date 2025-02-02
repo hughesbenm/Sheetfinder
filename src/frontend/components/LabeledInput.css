@@ -1,0 +1,14 @@
+.labeled_input {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin: 2px;
+}
+
+.input {
+	margin: 1px;
+}
+
+.label {
+
+}
