@@ -11,9 +11,14 @@
     "build": "vite build && tsc -p tsconfig-electron.json && electron-forge make"
   },
   "dependencies": {
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^6.4.3",
+    "@reduxjs/toolkit": "^2.5.1",
     "electron-squirrel-startup": "^1.0.0",
+    "mui": "^0.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.2.0"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.4",

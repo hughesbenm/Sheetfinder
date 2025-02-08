@@ -2,13 +2,15 @@
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	margin: 2px;
+	height: 70px;
+	padding: 10px;
 }
 
 .input {
-	margin: 1px;
+	height: 100%;
+	width: 100%;
+	font-size: 4ch;
 }
 
 .label {
-
 }

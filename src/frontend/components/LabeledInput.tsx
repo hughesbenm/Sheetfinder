@@ -1,18 +1,36 @@
 import "./LabeledInput.css";
 
-interface LabeledFillProps {
+interface LabeledInputProps<T extends string | number> {
 	position?: "top" | "bottom",
-	children: string;
-	value: string;
-	setValue: (value: string) => void;
+	value: T;
+	className?: string,
+	setValue?: (newValue: T) => void,
+	disabled?: boolean,
+	text?: string
 }
 
-const LabeledInput : React.FC<LabeledFillProps> = ({position = "top", value, setValue, children} : LabeledFillProps) => {
+const LabeledInput = <T extends string | number,>({
+	position = "top",
+	value,
+	className,
+	text,
+	disabled,
+	setValue
+}: LabeledInputProps<T>): JSX.Element => {
 	return (
-		<div className="labeled_input">
-			{position == "top" && <label className="label">{children}</label>}
-			<input className="input" value={value} onChange={(e) => setValue(e.target.value)}></input>
-			{position == "bottom" && <label className="label">{children}</label>}
+		<div className={`labeled_input ${className}`}>
+			{position == "top" && <label className="label">{text}</label>}
+			<input
+				disabled={disabled}
+				className="input"
+				value={value}
+				onChange={(e) => {
+					if ( setValue) {
+						setValue(e.target.value as T);
+					}
+				}}
+			/>
+			{position == "bottom" && <label className="label">{text}</label>}
 		</div>
 	)
 }

@@ -1,9 +1,7 @@
 .window {
-	display: flex;
-	width: 700px;
+	width: 1000px;
 	height: 100%;
-	justify-content: flex-start;
-    align-items: flex-start;
+	background-color: #4f4f4e;
 }
 
 .chara_name {
