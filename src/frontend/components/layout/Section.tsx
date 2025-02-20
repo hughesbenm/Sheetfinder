@@ -1,0 +1,34 @@
+import { Typography } from "@mui/material";
+import Box from '@mui/material/Box';
+import Grid2, { GridSize } from '@mui/material/Grid2';
+import GridSink, { GridSinkProps } from './GridSink';
+import { ReactElement, useEffect, useMemo, useRef, useState } from "react";
+import './Section.css'
+import React from "react";
+import { GridRowProps } from "./GridRow";
+
+interface SectionProps {
+	title: string;
+	children: React.ReactElement<GridRowProps>[] | React.ReactElement<GridRowProps>;
+}
+
+const Section = ({title, children} : SectionProps) => {
+	const childrenArray = React.Children.toArray(children) as React.ReactElement<GridSinkProps>[];
+	
+	return (
+		<div className="section_div">
+			<Box sx={{display: "flex", justifyContent: 'center'}}>
+				<Typography variant={"h2"}>
+					{title}
+				</Typography>
+			</Box>
+			{childrenArray.map((element) => {
+				return (
+					element
+				)
+			})}
+		</div>
+	)
+}
+
+export default Section;

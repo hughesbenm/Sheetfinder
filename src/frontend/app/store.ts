@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { abilityScoreSlice } from '../features/character/abilityScoreSlice'
+import { abilityScoreSlice } from '../features/character/abilitySlice'
 // ...
 
 export const store = configureStore({

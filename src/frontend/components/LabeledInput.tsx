@@ -9,7 +9,7 @@ interface LabeledInputProps<T extends string | number> {
 	text?: string
 }
 
-const LabeledInput = <T extends string | number,>({
+const LabeledInput = <T extends string | number>({
 	position = "top",
 	value,
 	className,
@@ -25,7 +25,8 @@ const LabeledInput = <T extends string | number,>({
 				className="input"
 				value={value}
 				onChange={(e) => {
-					if ( setValue) {
+					if (setValue) {
+						console.log("TEST")
 						setValue(e.target.value as T);
 					}
 				}}
