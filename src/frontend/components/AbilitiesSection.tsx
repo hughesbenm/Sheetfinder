@@ -1,6 +1,6 @@
 import { RootState } from "../app/store"
 import { setTo } from "../features/character/abilitySlice"
-import { AbilityTag } from "../features/character/characterTypes"
+import { AbilityTag } from "../types/characterTypes"
 import { useAppDispatch, useAppSelector } from "../hooks/hooks"
 import { getMod } from "../util/getMod"
 import GridLabel from "./layout/GridLabel"
@@ -37,7 +37,13 @@ const AbilitiesSection = () => {
 	return <Section title='Abilities'>
 		<GridRow>
 			<GridLabel title={"STR"} subtitle={"Strength"} size={1}/>
-			<GridSource value={strength} setValue={(newScore: number) => {setAbilityScore(AbilityTag.STR, newScore)}} position="bottom" label="Score" size={1}/>
+			<GridSource
+				value={strength}
+				setValue={(newScore: number) => {setAbilityScore(AbilityTag.STR, newScore)}}
+				position="bottom"
+				label="Score"
+				size={1}
+			/>
 			<GridSink value={strengthMod} position="bottom" label="Modifier" size={1}/>
 			<GridSink value={"STR"} position="bottom" label="Temp Score" size={1}/>
 			<GridSink value={"STR"} position="bottom" label="Temp Modifier" size={1}/>

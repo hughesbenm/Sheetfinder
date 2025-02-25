@@ -6,7 +6,7 @@ interface LabeledInputProps<T extends string | number> {
 	className?: string,
 	setValue?: (newValue: T) => void,
 	disabled?: boolean,
-	text?: string
+	text?: string,
 }
 
 const LabeledInput = <T extends string | number>({
@@ -26,7 +26,6 @@ const LabeledInput = <T extends string | number>({
 				value={value}
 				onChange={(e) => {
 					if (setValue) {
-						console.log("TEST")
 						setValue(e.target.value as T);
 					}
 				}}

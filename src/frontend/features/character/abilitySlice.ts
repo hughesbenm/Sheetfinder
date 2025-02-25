@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../../app/store'
-import { AbilityName, AbilityTag, AbilityScores } from './characterTypes';
+import { AbilityName, AbilityTag, AbilityScores } from '../../types/characterTypes';
 
 const initialState: AbilityScores = {
 		[AbilityTag.STR]: 10,
@@ -22,8 +22,6 @@ export const abilityScoreSlice = createSlice({
 			state[action.payload] -= 1;
 		},
 		setTo: (state, action: PayloadAction<{ abilityTag: AbilityTag; value: number }>) => {
-			console.log(action.payload.value)
-			console.log(typeof(action.payload.value))
 			state[action.payload.abilityTag] = action.payload.value;
 		},
 	}

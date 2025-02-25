@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { abilityScoreSlice } from '../features/character/abilitySlice'
+import { generalInfoSlice } from '../features/character/generalSlice'
 // ...
 
 export const store = configureStore({
   reducer: {
     abilityScores: abilityScoreSlice.reducer,
+	generalInfo: generalInfoSlice.reducer
   },
 })
 

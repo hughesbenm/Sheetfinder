@@ -19,14 +19,12 @@ const GridRow = ({children} : GridRowProps) => {
 		if (React.isValidElement(child)) {
 			let size = child.props.size;
 			if (typeof size == 'number') {
-				console.log((totalColumns + 1) + " / " + (totalColumns + size) + " = " + (totalColumns + 1) / (totalColumns + size));
 				totalColumns += size;
 			} else if (typeof size === 'string') {
 				console.error("'string' sizes for the Section component is unimplmented")
 			} else {
 				console.error("Unimplemented, non-string, size for Section")
 			}
-			console.log("totalColumns", totalColumns);
 			numColumns.current = totalColumns;
 		}
 	})

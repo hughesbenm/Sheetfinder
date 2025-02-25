@@ -1,0 +1,16 @@
+.labeled_select {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: 70px;
+	/* padding-top: 2px; */
+}
+
+.select {
+	height: 100%;
+	width: 100%;
+	font-size: 4ch;
+}
+
+.label {
+}
