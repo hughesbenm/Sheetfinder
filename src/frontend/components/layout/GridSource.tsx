@@ -1,5 +1,5 @@
 import Grid2 from '@mui/material/Grid2';
-import LabeledInput from "../LabeledInput";
+import LabeledInput from "./LabeledInput";
 import './GridSink.css'
 
 type GridSize = number | { xs?: number, sm?: number, md?: number, lg?: number, xl?: number };

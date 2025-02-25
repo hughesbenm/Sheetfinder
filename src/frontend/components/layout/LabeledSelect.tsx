@@ -1,6 +1,6 @@
 import "./LabeledInput.css";
 import React from "react";
-import { GridOptionProps } from "./layout/GridOption";
+import { GridOptionProps } from "./GridOption";
 import './LabeledSelect.css'
 
 interface LabeledSelectProps<T extends string | number> {

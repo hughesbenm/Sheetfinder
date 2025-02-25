@@ -11,6 +11,7 @@
     "build": "vite build && tsc -p tsconfig-electron.json && electron-forge make"
   },
   "dependencies": {
+    "@electron-forge/plugin-fuses": "^7.7.0",
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^6.4.3",
     "@reduxjs/toolkit": "^2.5.1",
@@ -26,6 +27,7 @@
     "@electron-forge/maker-rpm": "^6.0.4",
     "@electron-forge/maker-squirrel": "^6.0.4",
     "@electron-forge/maker-zip": "^6.0.4",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.7.0",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",

@@ -1,7 +1,7 @@
 import Grid2 from '@mui/material/Grid2';
-import LabeledInput from "../LabeledInput";
+import LabeledInput from "./LabeledInput";
 import './GridSink.css'
-import LabeledSelect from '../LabeledSelect';
+import LabeledSelect from './LabeledSelect';
 import React from 'react';
 import { GridOptionProps } from './GridOption';
 
