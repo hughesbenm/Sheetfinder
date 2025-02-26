@@ -2,6 +2,7 @@
 	width: 1010px;
 	height: 100%;
 	background-color: #4f4f4e;
+	height: min-content;
 }
 
 .chara_name {

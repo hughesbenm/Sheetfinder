@@ -7,6 +7,17 @@
 	justify-content: center;
 }
 
+.label_box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .grid_label_title {
-	font-size: 2rem !important;
+	font-size: 1.5rem !important;
+}
+
+.grid_label_subtitle {
+	font-size: 0.75rem !important;
+	text-align: center;
 }

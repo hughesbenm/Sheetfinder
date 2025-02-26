@@ -18,6 +18,9 @@ const GridRow = ({children} : GridRowProps) => {
 	React.Children.forEach(childrenArray, (child) => {
 		if (React.isValidElement(child)) {
 			let size = child.props.size;
+			if (!size) {
+				size = 1;
+			}
 			if (typeof size == 'number') {
 				totalColumns += size;
 			} else if (typeof size === 'string') {
@@ -29,11 +32,13 @@ const GridRow = ({children} : GridRowProps) => {
 		}
 	})
 
+	console.log(totalColumns);
+
 	return (
 		<Grid2 className="grid_row" spacing={2} columns={numColumns.current} size={12} container>
 			{childrenArray.map((element, elementIndex) => {
 				return (
-					<Grid2 size={element.props.size} key={elementIndex}>
+					<Grid2 size={!element.props.size ? 1 : element.props.size} key={elementIndex}>
 						{element}
 					</Grid2>
 				);
