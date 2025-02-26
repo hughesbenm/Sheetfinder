@@ -5,6 +5,7 @@ import { CreatureSize } from "../types/sizes"
 import GridDropdown from "./layout/GridDropdown"
 import GridOption from "./layout/GridOption"
 import GridRow from "./layout/GridRow"
+import GridSink from "./layout/GridSink"
 import GridSource from "./layout/GridSource"
 import Section from "./layout/Section"
 
@@ -26,24 +27,14 @@ const GeneralSection = () => {
 
 	return <Section title='General'>
 		<GridRow>
-			<GridSource
-				label="Character Name"
-				value={characterName}
-				setValue={(newName: string) => {dispatch(setCharacterName(newName))}}
-				size={3}
-			/>
-			<GridSource
-				label="Alignment"
-				value={alignment}
-				setValue={(newAlignment: string) => {dispatch(setAlignment(newAlignment))}}
-				size={2}
-			/>
-			<GridSource
-				label="Player Name"
-				value={playerName}
-				setValue={(newName: string) => {dispatch(setPlayerName(newName))}}
-				size={3}
-			/>
+			<GridSource size={9} label="Character Name" value={characterName} setValue={(newName: string) => {dispatch(setCharacterName(newName))}} />
+			<GridSource size={4} label="Alignment" value={alignment} setValue={(newAlignment: string) => {dispatch(setAlignment(newAlignment))}} />
+			<GridSource size={9} label="Player Name" value={playerName} setValue={(newName: string) => {dispatch(setPlayerName(newName))}} />
+		</GridRow>
+		<GridRow>
+			<GridSink size={13} label="Character Class & Level" value={"test"} />
+			<GridSource size={5} label="Deity" value={"test"} setValue={(newAlignment: string) => {dispatch(setAlignment(newAlignment))}} />
+			<GridSource size={4} label="Homeland" value={"test"} setValue={(newName: string) => {dispatch(setPlayerName(newName))}} />
 		</GridRow>
 		<GridRow>
 			<GridSource label="Race" value={race} setValue={(value: string) => {dispatch(setRace(value))}} size={2}/>
