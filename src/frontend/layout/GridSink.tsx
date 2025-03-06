@@ -1,6 +1,5 @@
 import Grid2 from '@mui/material/Grid2';
-import LabeledInput from "./LabeledInput";
-import './GridSink.css'
+import './Grid.css'
 
 type GridSize = number | { xs?: number, sm?: number, md?: number, lg?: number, xl?: number };
 
@@ -12,8 +11,14 @@ export interface GridSinkProps {
 }
 
 const GridSink = ({size, value = "TEST", label, position = "top"} : GridSinkProps) => {
-	return <Grid2 className={"grid_sink"} size={size}>
-		<LabeledInput position={position} text={label} value={value}/>
+	return <Grid2 className={"grid_item"} size={size}>
+		{position == "top" && <label className="label">{label}</label>}
+		<input
+			disabled={true}
+			className="grid_input"
+			value={value}
+		/>
+		{position == "bottom" && <label className="label">{label}</label>}
 	</Grid2>
 }
 

@@ -1,0 +1,23 @@
+.grid_item {
+	font-size: 0.8rem;
+	width: 100% !important;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.grid_identifier {
+	background-color: transparent;
+}
+
+.grid_select {
+	height: 100%;
+	width: 100%;
+	font-size: 4ch;
+}
+
+.grid_input {
+	height: 100%;
+	width: 100%;
+	font-size: 4ch;
+}

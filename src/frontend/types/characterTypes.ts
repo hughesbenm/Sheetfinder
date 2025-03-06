@@ -6,6 +6,7 @@ export enum AbilityTag {
 	WIS = "WIS",
 	CHA = "CHA"
 }
+
 export enum AbilityName {
 	STRENGTH = "Strength",
 	DEXTERITY = "Dexterity",

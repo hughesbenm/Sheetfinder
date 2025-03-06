@@ -32,8 +32,6 @@ const GridRow = ({children} : GridRowProps) => {
 		}
 	})
 
-	console.log(totalColumns);
-
 	return (
 		<Grid2 className="grid_row" spacing={2} columns={numColumns.current} size={12} container>
 			{childrenArray.map((element, elementIndex) => {

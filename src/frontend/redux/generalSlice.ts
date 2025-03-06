@@ -1,13 +1,33 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { RootState } from "../../app/store";
-import { CreatureSize } from "../../types/sizes";
+import { RootState } from "./store";
+import { BaseCreatureSizes, CreatureSize } from "../types/sizes";
 
-const initialState = {
+interface GeneralState {
+	characterName: string,
+	alignment: string,
+	playerName: string,
+	class: string,
+	deity: string,
+	homeland: string,
+	race: string,
+	size: number, //TODO: Reword back into indexed-type stuff [key: string]: CreatureSize
+	gender: string,
+	age: string,
+	height: string,
+	weight: string,
+	hair: string,
+	eyes: string,
+}
+
+const initialState: GeneralState = {
 	characterName: "Test",
 	alignment: "",
 	playerName: "",
+	class: "",
+	deity: "",
+	homeland: "",
 	race: "",
-	size: CreatureSize.MEDIUM,
+	size: 3,
 	gender: "",
 	age: "",
 	height: "",
@@ -29,10 +49,19 @@ export const generalInfoSlice = createSlice({
 		setPlayerName: (state, action: PayloadAction<string>) => {
 			state.playerName = action.payload;
 		},
+		setClass: (state, action: PayloadAction<string>) => {
+			state.class = action.payload;
+		},
+		setDeity: (state, action) => {
+			state.deity = action.payload;
+		},
+		setHomeland: (state, action: PayloadAction<string>) => {
+			state.homeland = action.payload;
+		},
 		setRace: (state, action: PayloadAction<string>) => {
 			state.race = action.payload;
 		},
-		setSize: (state, action: PayloadAction<CreatureSize>) => {
+		setSize: (state, action: PayloadAction<number>) => {
 			state.size = action.payload;
 		},
 		setGender: (state, action: PayloadAction<string>) => {
@@ -60,6 +89,9 @@ export const {
 	setCharacterName,
 	setAlignment,
 	setPlayerName,
+	setClass,
+	setDeity,
+	setHomeland,
 	setSize,
 	setRace,
 	setGender,
@@ -71,3 +103,7 @@ export const {
 } = generalInfoSlice.actions;
 
 export const selectGeneralInfo = (state: RootState) => state.generalInfo;
+
+export const selectSize = (state: RootState) => state.app.sizes[state.generalInfo.size]; 
+
+export default generalInfoSlice.reducer;

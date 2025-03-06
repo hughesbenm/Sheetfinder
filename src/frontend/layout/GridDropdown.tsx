@@ -1,7 +1,5 @@
 import Grid2 from '@mui/material/Grid2';
-import LabeledInput from "./LabeledInput";
-import './GridSink.css'
-import LabeledSelect from './LabeledSelect';
+import './Grid.css'
 import React from 'react';
 import { GridOptionProps } from './GridOption';
 
@@ -16,10 +14,17 @@ export interface GridDropdownProps <T extends string | number>{
 }
 
 const GridDropdown = <T extends string | number>({size, value, label, children, setValue} : GridDropdownProps<T>) => {
-	return <Grid2 className={"grid_sink"} size={size}>
-		<LabeledSelect text={label} value={value} setValue={setValue}>
+	return <Grid2 className={"grid_item"} size={size}>
+		<label className="label">{label}</label>
+		<select
+			className="grid_select"
+			value={value}
+			onChange={(e) => {
+				setValue(e.target.value as T)
+			}}
+		>
 			{children}
-		</LabeledSelect>
+		</select>
 	</Grid2>
 }
 

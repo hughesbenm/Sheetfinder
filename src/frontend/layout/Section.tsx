@@ -9,7 +9,7 @@ import { GridRowProps } from "./GridRow";
 
 interface SectionProps {
 	title: string;
-	children: React.ReactElement<GridRowProps>[] | React.ReactElement<GridRowProps>;
+	children: React.ReactElement[] | React.ReactElement;
 }
 
 const Section = ({title, children} : SectionProps) => {

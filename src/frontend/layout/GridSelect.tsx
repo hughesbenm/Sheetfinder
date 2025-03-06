@@ -2,6 +2,7 @@ import "./LabeledInput.css";
 import React from "react";
 import { GridOptionProps } from "./GridOption";
 import './LabeledSelect.css'
+import { Grid2 } from "@mui/material";
 
 interface LabeledSelectProps<T extends string | number> {
 	position?: "top" | "bottom",
@@ -22,7 +23,7 @@ const LabeledSelect = <T extends string | number>({
 	children
 }: LabeledSelectProps<T>): JSX.Element => {
 
-	return (
+	return <Grid2 className={`grid_item`} size={size}>
 		<div className={`labeled_select ${className}`}>
 			<label className="label">{text}</label>
 			<select
@@ -36,7 +37,7 @@ const LabeledSelect = <T extends string | number>({
 				{children}
 			</select>
 		</div>
-	)
+	</Grid2>
 }
 
 export default LabeledSelect;

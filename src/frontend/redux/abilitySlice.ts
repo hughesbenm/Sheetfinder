@@ -1,14 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from '../../app/store'
-import { AbilityName, AbilityTag, AbilityScores } from '../../types/characterTypes';
+import type { RootState } from './store'
+import { AbilityName, AbilityTag, AbilityScores } from '../types/characterTypes';
+import { getAbilityMod } from '../util/getAbilityMod';
 
 const initialState: AbilityScores = {
-		[AbilityTag.STR]: 10,
-		[AbilityTag.DEX]: 12,
-		[AbilityTag.CON]: 14,
-		[AbilityTag.INT]: 16,
-		[AbilityTag.WIS]: 18,
-		[AbilityTag.CHA]: 20,
+	[AbilityTag.STR]: 10,
+	[AbilityTag.DEX]: 12,
+	[AbilityTag.CON]: 14,
+	[AbilityTag.INT]: 16,
+	[AbilityTag.WIS]: 18,
+	[AbilityTag.CHA]: 20,
 }
 
 export const abilityScoreSlice = createSlice({
@@ -25,11 +26,11 @@ export const abilityScoreSlice = createSlice({
 			state[action.payload.abilityTag] = action.payload.value;
 		},
 	}
-})
+});
 
 export const { increment, decrement, setTo } = abilityScoreSlice.actions;
 
 export const selectAbilityScores = (state: RootState) => state.abilityScores;
+export const selectAbilityMod = (ability: AbilityTag) => (state: RootState) => getAbilityMod(state.abilityScores[ability]);
 
 export default abilityScoreSlice.reducer;
-
