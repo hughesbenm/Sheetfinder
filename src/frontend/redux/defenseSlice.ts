@@ -150,8 +150,8 @@ export const selectCMD = (state: RootState) => {
 	const baseAttackBonus = state.offense.baseAttackBonus;
 	const strMod = getAbilityMod(state.abilityScores.STR);
 	const dexMod = getAbilityMod(state.abilityScores.DEX);
-	const sizeBonus = state.app.sizes[state.generalInfo.size].mod;
-	return 10 + baseAttackBonus + strMod + dexMod + sizeBonus + state.defense.miscCMDMod + state.defense.tempCMDMod;
+	const specialSizeBonus = state.app.sizes[state.generalInfo.size].specialMod;
+	return 10 + baseAttackBonus + strMod + dexMod + specialSizeBonus + state.defense.miscCMDMod + state.defense.tempCMDMod;
 }
 
 export default defenseSlice.reducer;

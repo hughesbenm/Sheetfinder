@@ -17,7 +17,6 @@ interface SaveRowProps {
 const SaveRow = ({saveType}: SaveRowProps) => {
 	const dispatch = useAppDispatch();
 	
-	
 	const save = useAppSelector(selectDefense).saves[saveType];
 	const abilityMod = useAppSelector(selectAbilityMod(save.ability));
 

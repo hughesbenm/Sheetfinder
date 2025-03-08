@@ -115,7 +115,7 @@ const DefenseSection = () => {
 				<GridModSource size={1} label={"Armor Bonus"} value={armorBonus} setValue={handleArmorBonus} position={"bottom"}/>
 				<GridModSource size={1} label={"Shield Bonus"} value={shieldBonus} setValue={handleShieldBonus} position={"bottom"}/>
 				<AbilityModSink size={1} type={AbilityTag.DEX} />
-				<SizeModSink size={1} />
+				<SizeModSink gridSize={1} />
 				<GridModSource size={1} label={"Natural Armor"} value={naturalArmorBonus} setValue={handleNaturalArmorBonus} position={"bottom"}/>
 				<GridModSource size={1} label={"Deflection Bonus"} value={deflectionBonus} setValue={handleDeflectionBonus} position={"bottom"}/>
 				<GridModSource label={"Misc. Modifier"} value={miscACMod} setValue={handleMiscACMod} position={"bottom"} size={4}/>
@@ -158,7 +158,7 @@ const DefenseSection = () => {
 				<BABSink size={1}/>
 				<AbilityModSink size={1} type={AbilityTag.DEX} />
 				<AbilityModSink size={1} type={AbilityTag.STR} />
-				<SizeModSink size={1}/>
+				<SizeModSink special gridSize={1}/>
 				<GridModSource size={2} label={"+ Misc Modifiers"} value={miscCMDMods} setValue={handleMiscCMDMods} position={"bottom"}/>
 				<GridModSource size={2} label={"Temp Modifiers"} value={tempCMDMod} setValue={handleTempCMDMods} position={"bottom"}/>
 			</GridRow>
