@@ -10,7 +10,7 @@ interface GeneralState {
 	deity: string,
 	homeland: string,
 	race: string,
-	size: number, //TODO: Reword back into indexed-type stuff [key: string]: CreatureSize
+	size: string, //TODO: Reword back into indexed-type stuff [key: string]: CreatureSize
 	gender: string,
 	age: string,
 	height: string,
@@ -27,7 +27,7 @@ const initialState: GeneralState = {
 	deity: "",
 	homeland: "",
 	race: "",
-	size: 3,
+	size: "medium",
 	gender: "",
 	age: "",
 	height: "",
@@ -61,7 +61,7 @@ export const generalInfoSlice = createSlice({
 		setRace: (state, action: PayloadAction<string>) => {
 			state.race = action.payload;
 		},
-		setSize: (state, action: PayloadAction<number>) => {
+		setSize: (state, action: PayloadAction<string>) => {
 			state.size = action.payload;
 		},
 		setGender: (state, action: PayloadAction<string>) => {

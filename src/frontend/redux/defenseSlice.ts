@@ -86,7 +86,6 @@ export const defenseSlice = createSlice({
 			state.spellResistance = action.payload;
 		},
 		setSave: (state, action: PayloadAction<{type: SavingThrowType, save: SavingThrow}>) => {
-			console.log("action", action)
 			state.saves[action.payload.type] = action.payload.save;
 		},
 		setResistances: (state, action: PayloadAction<string>) => {

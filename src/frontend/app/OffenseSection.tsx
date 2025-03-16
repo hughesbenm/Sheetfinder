@@ -15,12 +15,13 @@ import { setBaseAttackBonus, selectOffense, setMiscInitMod, selectInitiative, se
 import { useAppDispatch, useAppSelector } from "../redux/store";
 import { AttackType } from "../types/attack";
 import { AbilityTag } from "../types/characterTypes";
+import { biggerThan } from "../types/sizes";
 import { modPlus } from "../util/modPlus";
 
 const OffenseSection = () => {
 	const dispatch = useAppDispatch();
 
-	const sizeIndex = useAppSelector(selectGeneralInfo).size;
+	const size = useAppSelector(selectGeneralInfo).size;
 
 	const initMod = useAppSelector(selectInitiative);
 	const miscInitMod = useAppSelector(selectOffense).miscInitMod;
@@ -116,9 +117,9 @@ const OffenseSection = () => {
 			<GridLabel size={2} title="CMB" subtitle="Combat Manuever Bonus" />
 			<GridSink size={1} label={"Total ="} value={CMB} position={"bottom"}/>
 			<BABSink size={1}/>
-			{ sizeIndex <= 2 ?
-				<AbilityModSink size={1} type={AbilityTag.DEX} /> :
-				<AbilityModSink size={1} type={AbilityTag.STR} />
+			{ biggerThan("tiny") ?
+				<AbilityModSink size={1} type={AbilityTag.STR} /> :
+				<AbilityModSink size={1} type={AbilityTag.DEX} />
 			}
 			<SizeModSink special gridSize={1} />
 			<GridModSource size={3} label={"+ Misc Modifier"} value={miscCMBMod} setValue={handleMiscCMBMod} position={"bottom"}/>
@@ -129,24 +130,6 @@ const OffenseSection = () => {
 			return <AttackRow key={eleInd} attack={ele} index={eleInd}/>
 		})}
 		</>
-		{/* <GridRow>
-			<GridLabel size={2} title="Ranged" subtitle="Ranged Attack" />
-			<GridStringSource size={1} label={"Weapon"} value={"test"} setValue={() => {}} position={"bottom"}/>
-			<GridSink position="bottom" label="Attack Bonus" value="test" size={1} />
-			<GridStringSource size={3} label={"Damage"} value={"test"} setValue={() => {}} position={"bottom"}/>
-			<GridStringSource size={3} label={"Critical"} value={"test"} setValue={() => {}} position={"bottom"}/>
-			<GridStringSource size={3} label={"Type"} value={"test"} setValue={() => {}} position={"bottom"}/>
-			<GridStringSource size={3} label={"Ammunition"} value={"test"} setValue={() => {}} position={"bottom"}/>
-		</GridRow>
-		<GridRow>
-			<GridLabel size={2} title="Melee" subtitle="Melee Attack" />
-			<GridStringSource size={1} label={"Weapon"} value={"test"} setValue={() => {}} position={"bottom"}/>
-			<GridSink position="bottom" label="Attack Bonus" value="test" size={1} />
-			<GridStringSource size={3} label={"Damage"} value={"test"} setValue={() => {}} position={"bottom"}/>
-			<GridStringSource size={3} label={"Critical"} value={"test"} setValue={() => {}} position={"bottom"}/>
-			<GridStringSource size={3} label={"Type"} value={"test"} setValue={() => {}} position={"bottom"}/>
-			<GridStringSource size={3} label={"Notes"} value={"test"} setValue={() => {}} position={"bottom"}/>
-		</GridRow> */}
 		<GridRow>
 			<GridButton gridSize={1} onClick={handleAddRangedAttack} label={"Add Ranged Attack"}/>
 			<GridButton gridSize={1} onClick={handleAddMeleeAttack} label={"Add Melee Attack"}/>

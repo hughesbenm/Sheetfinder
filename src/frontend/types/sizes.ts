@@ -1,3 +1,6 @@
+import { selectGeneralInfo } from "../redux/generalSlice";
+import { useAppSelector } from "../redux/store";
+
 export type CreatureSize = {
 	sizeName: string,
 	mod: number,
@@ -10,8 +13,10 @@ export type CreatureSize = {
 	typicalWeight: string
 }
 
-export const BaseCreatureSizes: CreatureSize[] = [
-	{
+export type CreatureSizeList = { [ creatureSize : string ] : CreatureSize }
+
+export const BaseCreatureSizes: CreatureSizeList = {
+	fine: {
 		sizeName: "Fine",
 		mod: 8,
 		specialMod: -8,
@@ -22,7 +27,7 @@ export const BaseCreatureSizes: CreatureSize[] = [
 		typicalHeightLength: "6\" or less",
 		typicalWeight: "1/8 lb. or less"
 	},
-	{
+	diminutive: {
 		sizeName: "Diminutive",
 		mod: 4,
 		specialMod: -4,
@@ -33,7 +38,7 @@ export const BaseCreatureSizes: CreatureSize[] = [
 		typicalHeightLength: "6\" to 1 ft.",
 		typicalWeight: "1/8 lb. to 1 lb."
 	},
-	{
+	tiny: {
 		sizeName: "Tiny",
 		mod: 2,
 		specialMod: -2,
@@ -44,7 +49,7 @@ export const BaseCreatureSizes: CreatureSize[] = [
 		typicalHeightLength: "1' to 2 ft.",
 		typicalWeight: "1-8 lbs"
 	},
-	{
+	small: {
 		sizeName: "Small",
 		mod: 1,
 		specialMod: -1,
@@ -55,7 +60,7 @@ export const BaseCreatureSizes: CreatureSize[] = [
 		typicalHeightLength: "2' to 4 ft.",
 		typicalWeight: "8-60 lbs."
 	},
-	{
+	medium: {
 		sizeName: "Medium",
 		mod: 0,
 		specialMod: 0,
@@ -66,7 +71,7 @@ export const BaseCreatureSizes: CreatureSize[] = [
 		typicalHeightLength: "4' to 8 ft.",
 		typicalWeight: "60-500 lbs."
 	},
-	{
+	largeTall: {
 		sizeName: "Large (tall)",
 		mod: -1,
 		specialMod: -1,
@@ -77,7 +82,7 @@ export const BaseCreatureSizes: CreatureSize[] = [
 		typicalHeightLength: "8' to 16 ft.",
 		typicalWeight: "500-4000 lbs."
 	},
-	{
+	largeLong: {
 		sizeName: "Large (long)",
 		mod: -1,
 		specialMod: 1,
@@ -88,7 +93,7 @@ export const BaseCreatureSizes: CreatureSize[] = [
 		typicalHeightLength: "8' to 16 ft.",
 		typicalWeight: "500-4000 lbs."
 	},
-	{
+	hugeTall: {
 		sizeName: "Huge (tall)",
 		mod: -2,
 		specialMod: 2,
@@ -99,7 +104,7 @@ export const BaseCreatureSizes: CreatureSize[] = [
 		typicalHeightLength: "16' to 32 ft.",
 		typicalWeight: "2-16 tons"
 	},
-	{
+	hugeLong: {
 		sizeName: "Huge (long)",
 		mod: -2,
 		specialMod: 2,
@@ -110,7 +115,7 @@ export const BaseCreatureSizes: CreatureSize[] = [
 		typicalHeightLength: "16' to 32 ft.",
 		typicalWeight: "2-16 tons"
 	},
-	{
+	gargTall: {
 		sizeName: "Gargantuan (tall)",
 		mod: -4,
 		specialMod: 4,
@@ -121,7 +126,7 @@ export const BaseCreatureSizes: CreatureSize[] = [
 		typicalHeightLength: "32' to 64 ft.",
 		typicalWeight: "16 – 125 tons"
 	},
-	{
+	gargLarge: {
 		sizeName: "Gargantuan (long)",
 		mod: -4,
 		specialMod: 4,
@@ -132,7 +137,7 @@ export const BaseCreatureSizes: CreatureSize[] = [
 		typicalHeightLength: "32' to 64 ft.",
 		typicalWeight: "16 – 125 tons"
 	},
-	{
+	colTall: {
 		sizeName: "Colossal (tall)",
 		mod: -8,
 		specialMod: 8,
@@ -143,7 +148,7 @@ export const BaseCreatureSizes: CreatureSize[] = [
 		typicalHeightLength: "64 ft. or more",
 		typicalWeight: "125 tons or more"
 	},
-	{
+	colLong: {
 		sizeName: "Colossal (long)",
 		mod: -8,
 		specialMod: 8,
@@ -154,4 +159,35 @@ export const BaseCreatureSizes: CreatureSize[] = [
 		typicalHeightLength: "64 ft. or more",
 		typicalWeight: "125 tons or more"
 	},
-]
+}
+
+export const BaseCreatureSizeNames = Object.keys(BaseCreatureSizes);
+
+
+export const biggerThan = (sizeName: string): boolean => {
+	if (!(BaseCreatureSizeNames.includes(sizeName))) {
+		console.error("Attempted to compute with unrecognized size: '" + sizeName + "'. Valid sizes: " + BaseCreatureSizeNames);
+		throw Error("Attempted to compute with unrecognized size: " + sizeName + ". Valid sizes: [" + BaseCreatureSizeNames + "]")
+	}
+	
+	const size = useAppSelector(selectGeneralInfo).size;
+	const currentSizeIndex = BaseCreatureSizeNames.indexOf(size);
+
+	const targetSizeIndex = BaseCreatureSizeNames.indexOf(sizeName);
+
+	return currentSizeIndex > targetSizeIndex;
+}
+
+export const smallerThan = (sizeName: string): boolean => {
+	if (!(BaseCreatureSizeNames.includes(sizeName))) {
+		console.error("Attempted to compute with unrecognized size: '" + sizeName + "'. Valid sizes: " + BaseCreatureSizeNames);
+		throw Error("Attempted to compute with unrecognized size: " + sizeName + ". Valid sizes: [" + BaseCreatureSizeNames + "]")
+	}
+	
+	const size = useAppSelector(selectGeneralInfo).size;
+	const currentSizeIndex = BaseCreatureSizeNames.indexOf(size);
+
+	const targetSizeIndex = BaseCreatureSizeNames.indexOf(sizeName);
+	
+	return currentSizeIndex < targetSizeIndex;
+}

@@ -62,12 +62,12 @@ const GeneralSection = () => {
 				size={18}
 				label={"Size"}
 				value={size}
-				setValue={(newSize: number) => {
+				setValue={(newSize: string) => {
 					dispatch(setSize(newSize));
 				}}
 			>
-				{creatureSizes.map((element, elementIndex) => {
-					return <GridOption key={elementIndex} value={elementIndex} name={element.sizeName}/>
+				{Object.entries(creatureSizes).map((creatureSizeTuple) => {
+					return <GridOption key={creatureSizeTuple[0]} value={creatureSizeTuple[0]} name={creatureSizeTuple[1].sizeName}/>
 				})}
 			</GridDropdown>
 			<GridStringSource size={8} label="Gender" value={gender} setValue={(newValue: string) => { dispatch(setGender(newValue))}}/>

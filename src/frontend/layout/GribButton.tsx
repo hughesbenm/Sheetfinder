@@ -12,7 +12,6 @@ const GridButton = ({ gridSize, onClick, label }: GridButtonProps) => {
 		<button
 			onClick={() => {
 				if (onClick) {
-					console.log("AHAHAHAH")
 					onClick()
 				}
 			}
