@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { RootState } from "./store";
 import { getAbilityMod } from "../util/getAbilityMod";
 import { Attack, AttackType } from "../types/attack";
+import { biggerThan } from "../types/sizes";
 
 interface OffenseState {
 	miscInitMod: number;
@@ -136,7 +137,7 @@ export const selectInitiative = (state: RootState) => {
 
 export const selectCMB = (state: RootState) => {
 	const { baseAttackBonus, miscCMBMod } = state.offense;
-	const relevantMod = getAbilityMod(state.generalInfo.size <= 2 ? state.abilityScores.DEX : state.abilityScores.STR)
+	const relevantMod = getAbilityMod(biggerThan("tiny") ? state.abilityScores.DEX : state.abilityScores.STR)
 	const specialSizeBonus = state.app.sizes[state.generalInfo.size].specialMod;
 	return baseAttackBonus + miscCMBMod + relevantMod + specialSizeBonus;
 }
