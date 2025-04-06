@@ -2,13 +2,14 @@ import Grid2 from "@mui/material/Grid2";
 import { GridSinkProps } from "./GridSink";
 import { useRef } from "react";
 import React from "react";
-import "./GridRow.css"
+import "./Grid.css"
 
 export interface GridRowProps {
 	children: React.ReactElement<GridSinkProps>[] | React.ReactElement<GridSinkProps>;
+	className?: string;
 }
 
-const GridRow = ({children} : GridRowProps) => {
+const GridRow = ({children, className} : GridRowProps) => {
 	const numColumns = useRef<number>(0);
 	
 	let totalColumns = 0;
@@ -33,7 +34,7 @@ const GridRow = ({children} : GridRowProps) => {
 	})
 
 	return (
-		<Grid2 className="grid_row" spacing={2} columns={numColumns.current} size={12} container>
+		<Grid2 className={`grid_row ${className}`} spacing={0} columns={numColumns.current} size={12} container>
 			{childrenArray.map((element, elementIndex) => {
 				return (
 					<Grid2 size={!element.props.size ? 1 : element.props.size} key={elementIndex}>

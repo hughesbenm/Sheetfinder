@@ -3,7 +3,8 @@ import { useAppSelector } from "../redux/store";
 import { AbilityTag } from "./characterTypes";
 
 export type Skill = {
-	skillName: string,
+	name: string,
+	specialty?: string,
 	trained: boolean,
 	classSkill: boolean,
 	ability: AbilityTag,
@@ -13,11 +14,46 @@ export type Skill = {
 	miscBonus: number
 }
 
-export type SkillList = { [ creatureSize : string ] : Skill }
+export type SkillList = { [ skillName : string ] : Skill }
+
+export enum BaseSkillNames {
+	ACROBATICS = "Acrobatics",
+	APPRAISE = "Appraise",
+	BLUFF = "Bluff",
+	CLIMB = "Climb",
+	DIPLOMACY = "Diplomacy",
+	DISABLE_DEVICE = "Disable Device",
+	DISGUISE = "Disguise",
+	ESCAPE_ARTIST = "Escape Artist",
+	FLY = "Fly",
+	HANDLE_ANIMAL = "Handle Animal",
+	HEAL = "Heal",
+	INTIMIDATE = "Intimidate",
+	KNOWLEDGE_ARCANA = "Knowledge (Arcane)",
+	KNOWLEDGE_DUNGEONEERING = "Knowledge (Dungeoneering)",
+	KNOWLEDGE_ENGINEERING = "Knowledge (Engineering)",
+	KNOWLEDGE_GEOGRAPHY = "Knowledge (Geography)",
+	KNOWLEDGE_HISTORY = "Knowledge (History)",
+	KNOWLEDGE_LOCAL = "Knowledge (Local)",
+	KNOWLEDGE_NATURE = "Knowledge (Nature)",
+	KNOWLEDGE_NOBILITY = "Knowledge (Nobility)",
+	KNOWLEDGE_PLANES = "Knowledge (Planes)",
+	KNOWLEDGE_RELIGION = "Knowledge (Religion)",
+	LINGUISTICS = "Linguistics",
+	PERCEPTION = "Perception",
+	RIDE = "Ride",
+	SENSE_MOTIVE = "Sense Motive",
+	SLEIGHT_OF_HAND = "Sleight of Hand",
+	SPELLCRAFT = "Spellcraft",
+	STEALTH = "Stealth",
+	SURVIVAL = "Survival",
+	SWIM = "Swim",
+	USE_MAGIC_DEVICE = "Use Magic Device"
+}
 
 export const BaseSkills: SkillList = {
-	acrobatics: {
-		skillName: "Acrobatics",
+	[BaseSkillNames.ACROBATICS]: {
+		name: BaseSkillNames.ACROBATICS,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.DEX,
@@ -26,8 +62,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	appraise: {
-		skillName: "Appraise",
+	[BaseSkillNames.APPRAISE]: {
+		name: BaseSkillNames.APPRAISE,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.INT,
@@ -36,8 +72,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	bluff: {
-		skillName: "Bluff",
+	[BaseSkillNames.BLUFF]: {
+		name: BaseSkillNames.BLUFF,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.CHA,
@@ -46,8 +82,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	climb: {
-		skillName: "Climb",
+	[BaseSkillNames.CLIMB]: {
+		name: BaseSkillNames.CLIMB,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.STR,
@@ -56,8 +92,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	diplomacy: {
-		skillName: "Diplomacy",
+	[BaseSkillNames.DIPLOMACY]: {
+		name: BaseSkillNames.DIPLOMACY,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.CHA,
@@ -66,8 +102,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	disableDevice: {
-		skillName: "Disable Device",
+	[BaseSkillNames.DISABLE_DEVICE]: {
+		name: BaseSkillNames.DISABLE_DEVICE,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.DEX,
@@ -76,8 +112,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	disguise: {
-		skillName: "Disguise",
+	[BaseSkillNames.DISGUISE]: {
+		name: BaseSkillNames.DISGUISE,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.CHA,
@@ -86,8 +122,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	escapeArtist: {
-		skillName: "Escape Artist",
+	[BaseSkillNames.ESCAPE_ARTIST]: {
+		name: BaseSkillNames.ESCAPE_ARTIST,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.DEX,
@@ -96,8 +132,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	fly: {
-		skillName: "Fly",
+	[BaseSkillNames.FLY]: {
+		name: BaseSkillNames.FLY,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.DEX,
@@ -106,8 +142,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	handleAnimal: {
-		skillName: "Handle Animal",
+	[BaseSkillNames.HANDLE_ANIMAL]: {
+		name: BaseSkillNames.HANDLE_ANIMAL,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.CHA,
@@ -116,8 +152,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	heal: {
-		skillName: "Heal",
+	[BaseSkillNames.HEAL]: {
+		name: BaseSkillNames.HEAL,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.WIS,
@@ -126,8 +162,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	intimidate: {
-		skillName: "Intimidate",
+	[BaseSkillNames.INTIMIDATE]: {
+		name: BaseSkillNames.INTIMIDATE,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.CHA,
@@ -136,8 +172,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	knowledgeArcana: {
-		skillName: "Knowledge (Arcana)",
+	[BaseSkillNames.KNOWLEDGE_ARCANA]: {
+		name: BaseSkillNames.KNOWLEDGE_ARCANA,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.INT,
@@ -146,8 +182,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	knowledgeDungeoneering: {
-		skillName: "Knowledge (Dungeoneering)",
+	[BaseSkillNames.KNOWLEDGE_DUNGEONEERING]: {
+		name: BaseSkillNames.KNOWLEDGE_DUNGEONEERING,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.INT,
@@ -156,8 +192,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	knowledgeEngineering: {
-		skillName: "Knowledge (Engineering)",
+	[BaseSkillNames.KNOWLEDGE_ENGINEERING]: {
+		name: BaseSkillNames.KNOWLEDGE_ENGINEERING,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.INT,
@@ -166,8 +202,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	knowledgeGeography: {
-		skillName: "Knowledge (Geography)",
+	[BaseSkillNames.KNOWLEDGE_GEOGRAPHY]: {
+		name: BaseSkillNames.KNOWLEDGE_GEOGRAPHY,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.INT,
@@ -176,8 +212,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	knowledgeHistory: {
-		skillName: "Knowledge (History)",
+	[BaseSkillNames.KNOWLEDGE_HISTORY]: {
+		name: BaseSkillNames.KNOWLEDGE_HISTORY,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.INT,
@@ -186,8 +222,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	knowledgeLocal: {
-		skillName: "Knowledge (Local)",
+	[BaseSkillNames.KNOWLEDGE_LOCAL]: {
+		name: BaseSkillNames.KNOWLEDGE_LOCAL,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.INT,
@@ -196,8 +232,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	knowledgeNature: {
-		skillName: "Knowledge (Nature)",
+	[BaseSkillNames.KNOWLEDGE_NATURE]: {
+		name: BaseSkillNames.KNOWLEDGE_NATURE,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.INT,
@@ -206,8 +242,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	knowledgeNobility: {
-		skillName: "Knowledge (Nobility)",
+	[BaseSkillNames.KNOWLEDGE_NOBILITY]: {
+		name: BaseSkillNames.KNOWLEDGE_NOBILITY,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.INT,
@@ -216,8 +252,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	knowledgePlanes: {
-		skillName: "Knowledge (Planes)",
+	[BaseSkillNames.KNOWLEDGE_PLANES]: {
+		name: BaseSkillNames.KNOWLEDGE_PLANES,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.INT,
@@ -226,8 +262,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	knowledgeReligion: {
-		skillName: "Knowledge (Religion)",
+	[BaseSkillNames.KNOWLEDGE_RELIGION]: {
+		name: BaseSkillNames.KNOWLEDGE_RELIGION,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.INT,
@@ -236,8 +272,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	linguistics: {
-		skillName: "Linguistics",
+	[BaseSkillNames.LINGUISTICS]: {
+		name: BaseSkillNames.LINGUISTICS,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.INT,
@@ -246,8 +282,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	perception: {
-		skillName: "Perception",
+	[BaseSkillNames.PERCEPTION]: {
+		name: BaseSkillNames.PERCEPTION,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.WIS,
@@ -256,8 +292,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	ride: {
-		skillName: "Ride",
+	[BaseSkillNames.RIDE]: {
+		name: BaseSkillNames.RIDE,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.DEX,
@@ -266,8 +302,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	senseMotive: {
-		skillName: "Sense Motive",
+	[BaseSkillNames.SENSE_MOTIVE]: {
+		name: BaseSkillNames.SENSE_MOTIVE,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.WIS,
@@ -276,8 +312,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	sleightOfHand: {
-		skillName: "Sleight of Hand",
+	[BaseSkillNames.SLEIGHT_OF_HAND]: {
+		name: BaseSkillNames.SLEIGHT_OF_HAND,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.DEX,
@@ -286,8 +322,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	spellcraft: {
-		skillName: "Spellcraft",
+	[BaseSkillNames.SPELLCRAFT]: {
+		name: BaseSkillNames.SPELLCRAFT,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.INT,
@@ -296,8 +332,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	stealth: {
-		skillName: "Stealth",
+	[BaseSkillNames.STEALTH]: {
+		name: BaseSkillNames.STEALTH,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.DEX,
@@ -306,8 +342,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	survival: {
-		skillName: "Survival",
+	[BaseSkillNames.SURVIVAL]: {
+		name: BaseSkillNames.SURVIVAL,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.WIS,
@@ -316,8 +352,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	swim: {
-		skillName: "Swim",
+	[BaseSkillNames.SWIM]: {
+		name: BaseSkillNames.SWIM,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.STR,
@@ -326,8 +362,8 @@ export const BaseSkills: SkillList = {
 		traitBonus: 0,
 		miscBonus: 0
 	},
-	useMagicDevice: {
-		skillName: "Use Magic Device",
+	[BaseSkillNames.USE_MAGIC_DEVICE]: {
+		name: BaseSkillNames.USE_MAGIC_DEVICE,
 		trained: false,
 		classSkill: false,
 		ability: AbilityTag.CHA,
@@ -337,5 +373,3 @@ export const BaseSkills: SkillList = {
 		miscBonus: 0
 	},
 }
-
-export const BaseCreatureSizeNames = Object.keys(BaseSkills);

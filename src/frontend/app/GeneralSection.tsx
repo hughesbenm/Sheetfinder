@@ -19,7 +19,7 @@ import { useAppDispatch, useAppSelector } from "../redux/store";
 import GridDropdown from "../layout/GridDropdown"
 import GridOption from "../layout/GridOption"
 import GridRow from "../layout/GridRow"
-import Section from "../layout/Section"
+import GridSection from "../layout/GridSection"
 import GridStringSource from "../layout/GridStringSource"
 import { selectSizes } from "../redux/appSlice"
 
@@ -45,7 +45,7 @@ const GeneralSection = () => {
 
 	const dispatch = useAppDispatch();
 
-	return <Section title='General'>
+	return <GridSection title='General'>
 		<GridRow>
 			<GridStringSource size={9} label="Character Name" value={characterName} setValue={(newName: string) => {dispatch(setCharacterName(newName))}} />
 			<GridStringSource size={4} label="Alignment" value={alignment} setValue={(newAlignment: string) => {dispatch(setAlignment(newAlignment))}} />
@@ -77,7 +77,7 @@ const GeneralSection = () => {
 			<GridStringSource size={9} label="Hair" value={hair} setValue={(newValue: string) => { dispatch(setHair(newValue))}}/>
 			<GridStringSource size={9} label="Eyes" value={eyes} setValue={(newValue: string) => { dispatch(setEyes(newValue))}}/>
 		</GridRow>
-	</Section>
+	</GridSection>
 }
 
 export default GeneralSection;

@@ -4,6 +4,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	padding-inline: 10px;
 }
 
 .grid_identifier {
@@ -28,4 +29,42 @@
 	height: 70px;
 	border-radius: 0;
 	font-size: 1.5rem;
+}
+
+.grid_table_header {
+	justify-content: flex-end;
+}
+
+.grid_row {
+	font-size: 0.8rem;
+	width: 100% !important;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-inline: 10px;
+}
+
+.grid_section {
+	width: 100%;
+}
+
+.grid_label {
+	background-color: black;
+	width: 100% !important;
+	height: 100% !important;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.grid_label_title {
+	font-size: 1.5rem !important;
+}
+
+.grid_label_subtitle {
+	font-size: 0.75rem !important;
+	text-align: center;
+}
+
+.grid_checkbox {
 }

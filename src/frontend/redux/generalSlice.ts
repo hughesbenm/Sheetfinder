@@ -104,6 +104,8 @@ export const {
 
 export const selectGeneralInfo = (state: RootState) => state.generalInfo;
 
-export const selectSize = (state: RootState) => state.app.sizes[state.generalInfo.size]; 
+export const selectSize = (state: RootState) => {
+	return state.app.sizes[state.generalInfo.size];
+} 
 
 export default generalInfoSlice.reducer;

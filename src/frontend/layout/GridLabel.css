@@ -1,23 +1,11 @@
-.grid_label {
-	background-color: black;
-	width: 100% !important;
-	height: 100% !important;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.label_box {
-	display: flex;
-	flex-direction: column;
+.center {
 	align-items: center;
 }
 
-.grid_label_title {
-	font-size: 1.5rem !important;
+.right {
+	align-items: flex-end;
 }
 
-.grid_label_subtitle {
-	font-size: 0.75rem !important;
-	text-align: center;
+.left {
+	align-items: flex-start;
 }

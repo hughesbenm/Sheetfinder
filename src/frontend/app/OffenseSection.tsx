@@ -9,7 +9,7 @@ import GridNumberSource from "../layout/GridNumberSource";
 import GridRow from "../layout/GridRow";
 import GridSink from "../layout/GridSink";
 import GridStringSource from "../layout/GridStringSource";
-import Section from "../layout/Section";
+import GridSection from "../layout/GridSection";
 import { selectGeneralInfo } from "../redux/generalSlice";
 import { setBaseAttackBonus, selectOffense, setMiscInitMod, selectInitiative, setModsAndNotes, setLandSpeed, setArmorSpeed, setSpeedModsAndNotes, setBurrowSpeed, setClimbSpeed, setFlySpeed, selectCMB, setMiscCMBMod, setTempCMBMod, addEmptyAttack } from "../redux/offenseSlice";
 import { useAppDispatch, useAppSelector } from "../redux/store";
@@ -93,7 +93,7 @@ const OffenseSection = () => {
 		dispatch(addEmptyAttack(AttackType.MELEE));
 	}
 
-	return <Section title='Offense'>
+	return <GridSection title='Offense'>
 		<GridRow>
 			<GridLabel size={2} title="Initiative" subtitle="Modifier"/>
 			<GridSink position="bottom" label="Total =" value={modPlus(initMod)} size={1} />
@@ -117,7 +117,7 @@ const OffenseSection = () => {
 			<GridLabel size={2} title="CMB" subtitle="Combat Manuever Bonus" />
 			<GridSink size={1} label={"Total ="} value={CMB} position={"bottom"}/>
 			<BABSink size={1}/>
-			{ biggerThan("tiny") ?
+			{ biggerThan(size, "tiny") ?
 				<AbilityModSink size={1} type={AbilityTag.STR} /> :
 				<AbilityModSink size={1} type={AbilityTag.DEX} />
 			}
@@ -134,7 +134,7 @@ const OffenseSection = () => {
 			<GridButton gridSize={1} onClick={handleAddRangedAttack} label={"Add Ranged Attack"}/>
 			<GridButton gridSize={1} onClick={handleAddMeleeAttack} label={"Add Melee Attack"}/>
 		</GridRow>
-	</Section>
+	</GridSection>
 }
 
 export default OffenseSection;

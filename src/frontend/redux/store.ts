@@ -5,6 +5,7 @@ import generalInfoSliceReducer from './generalSlice'
 import defenseSliceReducer from './defenseSlice'
 import appSliceReducer from './appSlice'
 import offenseSliceReducer from './offenseSlice'
+import skillSliceReducer from './skillSlice'
 
 
 export const store = configureStore({
@@ -13,7 +14,8 @@ export const store = configureStore({
 	generalInfo: generalInfoSliceReducer,
 	defense: defenseSliceReducer,
 	app: appSliceReducer,
-	offense: offenseSliceReducer
+	offense: offenseSliceReducer,
+	skills: skillSliceReducer
   },
 })
 

@@ -164,18 +164,22 @@ export const BaseCreatureSizes: CreatureSizeList = {
 export const BaseCreatureSizeNames = Object.keys(BaseCreatureSizes);
 
 
-export const biggerThan = (sizeName: string): boolean => {
-	if (!(BaseCreatureSizeNames.includes(sizeName))) {
-		console.error("Attempted to compute with unrecognized size: '" + sizeName + "'. Valid sizes: " + BaseCreatureSizeNames);
-		throw Error("Attempted to compute with unrecognized size: " + sizeName + ". Valid sizes: [" + BaseCreatureSizeNames + "]")
+export const biggerThan = (sizeOne: string, sizeTwo: string): boolean => {
+	if (!(BaseCreatureSizeNames.includes(sizeOne))) {
+		console.error("Attempted to compute with unrecognized size: '" + sizeOne + "'. Valid sizes: " + BaseCreatureSizeNames);
+		throw Error("Attempted to compute with unrecognized size: " + sizeOne + ". Valid sizes: [" + BaseCreatureSizeNames + "]")
+	}
+
+	if (!(BaseCreatureSizeNames.includes(sizeTwo))) {
+		console.error("Attempted to compute with unrecognized size: '" + sizeTwo + "'. Valid sizes: " + BaseCreatureSizeNames);
+		throw Error("Attempted to compute with unrecognized size: " + sizeTwo + ". Valid sizes: [" + BaseCreatureSizeNames + "]")
 	}
 	
-	const size = useAppSelector(selectGeneralInfo).size;
-	const currentSizeIndex = BaseCreatureSizeNames.indexOf(size);
+	const indexOne = BaseCreatureSizeNames.indexOf(sizeOne);
 
-	const targetSizeIndex = BaseCreatureSizeNames.indexOf(sizeName);
+	const indexTwo = BaseCreatureSizeNames.indexOf(sizeTwo);
 
-	return currentSizeIndex > targetSizeIndex;
+	return indexOne > indexTwo;
 }
 
 export const smallerThan = (sizeName: string): boolean => {

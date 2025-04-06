@@ -137,7 +137,8 @@ export const selectInitiative = (state: RootState) => {
 
 export const selectCMB = (state: RootState) => {
 	const { baseAttackBonus, miscCMBMod } = state.offense;
-	const relevantMod = getAbilityMod(biggerThan("tiny") ? state.abilityScores.DEX : state.abilityScores.STR)
+	const size = state.generalInfo.size;
+	const relevantMod = getAbilityMod(biggerThan(size, "tiny") ? state.abilityScores.DEX : state.abilityScores.STR)
 	const specialSizeBonus = state.app.sizes[state.generalInfo.size].specialMod;
 	return baseAttackBonus + miscCMBMod + relevantMod + specialSizeBonus;
 }

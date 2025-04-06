@@ -5,7 +5,7 @@ import GridLabel from "../layout/GridLabel";
 import GridNumberSource from "../layout/GridNumberSource";
 import GridRow from "../layout/GridRow";
 import GridSink from "../layout/GridSink";
-import Section from "../layout/Section";
+import GridSection from "../layout/GridSection";
 import { AbilityTag } from "../types/characterTypes";
 
 
@@ -28,7 +28,7 @@ const AbilitiesSection = () => {
 		dispatch(setTo({abilityTag, value}));
 	}
 
-	return <Section title='Abilities'>
+	return <GridSection title='Abilities'>
 		<GridRow>
 			<GridLabel title={"STR"} subtitle={"Strength"} size={1}/>
 			<GridNumberSource
@@ -74,7 +74,7 @@ const AbilitiesSection = () => {
 			<GridSink value={"CHA"} position="bottom" label="Temp Score" size={1}/>
 			<GridSink value={"CHA"} position="bottom" label="Temp Modifier" size={1}/>
 		</GridRow>
-	</Section>
+	</GridSection>
 }
 
 export default AbilitiesSection;

@@ -9,7 +9,7 @@ import GridNumberSource from "../layout/GridNumberSource";
 import GridRow from "../layout/GridRow";
 import GridSink from "../layout/GridSink";
 import GridStringSource from "../layout/GridStringSource";
-import Section from "../layout/Section";
+import GridSection from "../layout/GridSection";
 import { AbilityTag } from "../types/characterTypes";
 import { modPlus } from "../util/modPlus";
 import SaveRow from "../components/SaveRow";
@@ -107,7 +107,7 @@ const DefenseSection = () => {
 	}
 
 	return (
-		<Section title="Defense">
+		<GridSection title="Defense">
 			<GridRow>
 				<GridLabel size={1} title="AC" subtitle="Armor Class" />
 				<GridSink size={1} label={"Total ="} value={armorClass} position={"bottom"}/>
@@ -162,7 +162,7 @@ const DefenseSection = () => {
 				<GridModSource size={2} label={"+ Misc Modifiers"} value={miscCMDMods} setValue={handleMiscCMDMods} position={"bottom"}/>
 				<GridModSource size={2} label={"Temp Modifiers"} value={tempCMDMod} setValue={handleTempCMDMods} position={"bottom"}/>
 			</GridRow>
-		</Section>
+		</GridSection>
 	);
 }
 

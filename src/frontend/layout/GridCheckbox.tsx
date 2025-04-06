@@ -3,14 +3,21 @@ import { GridSize } from "../types/layout"
 
 interface GridCheckboxProps {
 	size: GridSize;
+	value: boolean;
+	setValue: (newValue: boolean) => void;
 }
 
-const GridCheckbox = ({size}: GridCheckboxProps) => {
+const GridCheckbox = ({size, value, setValue}: GridCheckboxProps) => {
 	return (
-		<Grid2 className={"grid_label"} size={size}>
-			<Box className={"label_box"}>
-				<Typography className={"grid_label_title"}>{"test"}</Typography>
-				<Typography className={"grid_label_subtitle"}>{"subtest"}</Typography>
+		<Grid2 className={"grid_item"} size={size}>
+			<Box>
+				<input
+					type="checkbox"
+					checked={value}
+					onChange={(e) => {
+						setValue(e.target.checked)
+					}}
+				/>
 			</Box>
 		</Grid2>
 	)
