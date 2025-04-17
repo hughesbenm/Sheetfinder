@@ -17,7 +17,7 @@ const GridStringSource = ({
 	label,
 	position = "top",
 	setValue,
-	justify = "left"
+	justify = "center"
 } : GridStringSourceProps) => {
 	return <Grid2 className={`grid_item ${justify}`} size={size}>
 			{position == "top" && <label className="grid_identifier">{label}</label>}

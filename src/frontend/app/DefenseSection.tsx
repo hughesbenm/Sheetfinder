@@ -4,7 +4,6 @@ import { selectGeneralInfo } from "../redux/generalSlice";
 import { useAppDispatch, useAppSelector } from "../redux/store";
 import AbilityModSink from "../components/AbilityModSink";
 import GridLabel from "../layout/GridLabel";
-import GridModSource from "../layout/GridModSource";
 import GridNumberSource from "../layout/GridNumberSource";
 import GridRow from "../layout/GridRow";
 import GridSink from "../layout/GridSink";
@@ -111,30 +110,30 @@ const DefenseSection = () => {
 			<GridRow>
 				<GridLabel size={1} title="AC" subtitle="Armor Class" />
 				<GridSink size={1} label={"Total ="} value={armorClass} position={"bottom"}/>
-				<GridLabel title="+10" />
-				<GridModSource size={1} label={"Armor Bonus"} value={armorBonus} setValue={handleArmorBonus} position={"bottom"}/>
-				<GridModSource size={1} label={"Shield Bonus"} value={shieldBonus} setValue={handleShieldBonus} position={"bottom"}/>
+				<GridLabel size={1} title="+10" />
+				<GridNumberSource mod size={1} label={"Armor Bonus"} value={armorBonus} setValue={handleArmorBonus} position={"bottom"}/>
+				<GridNumberSource mod size={1} label={"Shield Bonus"} value={shieldBonus} setValue={handleShieldBonus} position={"bottom"}/>
 				<AbilityModSink size={1} type={AbilityTag.DEX} />
 				<SizeModSink gridSize={1} />
-				<GridModSource size={1} label={"Natural Armor"} value={naturalArmorBonus} setValue={handleNaturalArmorBonus} position={"bottom"}/>
-				<GridModSource size={1} label={"Deflection Bonus"} value={deflectionBonus} setValue={handleDeflectionBonus} position={"bottom"}/>
-				<GridModSource label={"Misc. Modifier"} value={miscACMod} setValue={handleMiscACMod} position={"bottom"} size={4}/>
+				<GridNumberSource mod size={1} label={"Natural Armor"} value={naturalArmorBonus} setValue={handleNaturalArmorBonus} position={"bottom"}/>
+				<GridNumberSource mod size={1} label={"Deflection Bonus"} value={deflectionBonus} setValue={handleDeflectionBonus} position={"bottom"}/>
+				<GridNumberSource mod label={"Misc. Modifier"} value={miscACMod} setValue={handleMiscACMod} position={"bottom"} size={4}/>
 			</GridRow>
 			<GridRow>
-				<GridLabel title={"Touch"} subtitle="AC"/>
+				<GridLabel size={1} title={"Touch"} subtitle="AC"/>
 				<GridSink size={1} label={""} value={touchAC} position={"bottom"}/>
-				<GridLabel title={"Flat"} subtitle="AC"/>
+				<GridLabel size={1} title={"Flat"} subtitle="AC"/>
 				<GridSink size={1} value={flatFootedAC} />
 				<GridStringSource label={"Other AC Modifiers"} value={otherACMods} setValue={handleOtherACMods} position={"bottom"} size={5}/>
 			</GridRow>
 			<GridRow>
-				<GridLabel title={"HP"} subtitle="Hit Points"/>
+				<GridLabel size={1} title={"HP"} subtitle="Hit Points"/>
 				<GridNumberSource size={1} label={"Total"} value={maxHP} setValue={handleMaxHP} position={"bottom"}/>
 				<GridNumberSource size={2} label="Current" value={currentHP} setValue={handleCurrentHP} position={"bottom"}/>
 				<GridNumberSource size={2} label={"Non-Lethal Damage"} value={nonLethalDamage} setValue={handleNonLethalDamage} position={"bottom"}/>
 				<GridLabel size={1} title={"DR"} subtitle="Damage Reduction"/>
 				<GridNumberSource value={damageReduction} setValue={handleDamageReduction} position={"bottom"} size={2}/>
-				<GridLabel title={"SR"} subtitle="Spell Resistance"/>
+				<GridLabel size={1} title={"SR"} subtitle="Spell Resistance"/>
 				<GridNumberSource value={spellResistance} setValue={handleSpellResistance} position={"bottom"} size={1}/>
 			</GridRow>
 
@@ -154,13 +153,13 @@ const DefenseSection = () => {
 			<GridRow>
 				<GridLabel size={2} title="CMD" subtitle="Combat Manuever Defense" />
 				<GridSink size={1} label={"Total ="} value={CMD} position={"bottom"}/>
-				<GridLabel title="+10" />
+				<GridLabel size={1} title="+10" />
 				<BABSink size={1}/>
 				<AbilityModSink size={1} type={AbilityTag.DEX} />
 				<AbilityModSink size={1} type={AbilityTag.STR} />
 				<SizeModSink special gridSize={1}/>
-				<GridModSource size={2} label={"+ Misc Modifiers"} value={miscCMDMods} setValue={handleMiscCMDMods} position={"bottom"}/>
-				<GridModSource size={2} label={"Temp Modifiers"} value={tempCMDMod} setValue={handleTempCMDMods} position={"bottom"}/>
+				<GridNumberSource mod size={2} label={"+ Misc Modifiers"} value={miscCMDMods} setValue={handleMiscCMDMods} position={"bottom"}/>
+				<GridNumberSource mod size={2} label={"Temp Modifiers"} value={tempCMDMod} setValue={handleTempCMDMods} position={"bottom"}/>
 			</GridRow>
 		</GridSection>
 	);

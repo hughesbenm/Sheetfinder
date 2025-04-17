@@ -1,6 +1,5 @@
 import { useEffect } from "react"
 import GridLabel from "../layout/GridLabel"
-import GridModSource from "../layout/GridModSource"
 import GridRow from "../layout/GridRow"
 import GridSink from "../layout/GridSink"
 import GridStringSource from "../layout/GridStringSource"

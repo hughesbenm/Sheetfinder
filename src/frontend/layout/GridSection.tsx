@@ -16,7 +16,7 @@ const GridSection = ({title, children} : GridSectionProps) => {
 	const childrenArray = React.Children.toArray(children) as React.ReactElement<GridSinkProps>[];
 	
 	return (
-		<div className="section_div">
+		<div className="grid_section">
 			<Box sx={{display: "flex", justifyContent: 'center'}}>
 				<Typography variant={"h2"}>
 					{title}

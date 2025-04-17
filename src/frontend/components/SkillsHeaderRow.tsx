@@ -5,9 +5,9 @@ const SkillsHeaderRow = () => {
 	return (
 		<GridRow className={""}>
 			<GridTableHeader text={"Class Skill"} size={1}/>
-			<GridTableHeader text={"Skill Name"} size={6}/>
+			<GridTableHeader text={"Skill Name"} size={7}/>
 			<GridTableHeader text={"Total"} size={2}/>
-			<GridTableHeader text={"Ability Mod"} size={3}/>
+			<GridTableHeader text={"Ability Mod"} size={5}/>
 			<GridTableHeader text={"Ranks"} size={2}/>
 			<GridTableHeader text={"Class"} size={2}/>
 			<GridTableHeader text={"Racial"} size={2}/>

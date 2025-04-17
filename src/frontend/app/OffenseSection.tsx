@@ -4,7 +4,6 @@ import BABSink from "../components/BABSink";
 import SizeModSink from "../components/SizeModSink";
 import GridButton from "../layout/GribButton";
 import GridLabel from "../layout/GridLabel";
-import GridModSource from "../layout/GridModSource";
 import GridNumberSource from "../layout/GridNumberSource";
 import GridRow from "../layout/GridRow";
 import GridSink from "../layout/GridSink";
@@ -98,9 +97,9 @@ const OffenseSection = () => {
 			<GridLabel size={2} title="Initiative" subtitle="Modifier"/>
 			<GridSink position="bottom" label="Total =" value={modPlus(initMod)} size={1} />
 			<AbilityModSink size={1} type={AbilityTag.DEX} />
-			<GridModSource position="bottom" label="+ Misc Modifier" value={miscInitMod} setValue={handleMiscInitMod} size={1} />
-			<GridLabel title="BAB" subtitle="Base Attack Bonus"/>
-			<GridModSource position="bottom" value={baseAttackBonus} setValue={handleBaseAttack} size={1} />
+			<GridNumberSource mod position="bottom" label="+ Misc Modifier" value={miscInitMod} setValue={handleMiscInitMod} size={1} />
+			<GridLabel size={1} title="BAB" subtitle="Base Attack Bonus"/>
+			<GridNumberSource mod position="bottom" value={baseAttackBonus} setValue={handleBaseAttack} size={1} />
 			<GridLabel size={2} title="Conditional" subtitle="Modifiers"/>
 			<GridStringSource position="bottom" label="Modifiers & Notes" value={modsAndNotes} setValue={handleModsAndNotes} size={3} />
 		</GridRow>
@@ -122,7 +121,7 @@ const OffenseSection = () => {
 				<AbilityModSink size={1} type={AbilityTag.DEX} />
 			}
 			<SizeModSink special gridSize={1} />
-			<GridModSource size={3} label={"+ Misc Modifier"} value={miscCMBMod} setValue={handleMiscCMBMod} position={"bottom"}/>
+			<GridNumberSource mod size={3} label={"+ Misc Modifier"} value={miscCMBMod} setValue={handleMiscCMBMod} position={"bottom"}/>
 			<GridStringSource size={3} label={"Temp Modifiers"} value={tempCMBMod} setValue={handleTempCMBMod} position={"bottom"}/>
 		</GridRow>
 		<>

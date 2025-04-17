@@ -9,3 +9,15 @@
 .left {
 	align-items: flex-start;
 }
+
+.grid_label_title {
+	padding-inline: 5px;
+}
+
+.grid_label_subtitle {
+	text-align: center;
+}
+
+.bold {
+	font-weight: bold;
+}

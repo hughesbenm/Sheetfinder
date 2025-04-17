@@ -10,7 +10,6 @@ import { getAbilityMod } from "../util/getAbilityMod";
 import AbilityModSink from "./AbilityModSink";
 import { selectSkills, setClassSkill, setMiscBonus, setRacialBonus, setRanks, setTraitBonus } from "../redux/skillSlice";
 import { modPlus } from "../util/modPlus";
-import GridModSource from "../layout/GridModSource";
 
 interface SkillRowProps {
 	skill: Skill;
@@ -44,14 +43,15 @@ const SkillRow = ({skill}: SkillRowProps) => {
 	return (
 		<GridRow>
 			<GridCheckbox size={1} value={skill.classSkill} setValue={(newValue) => handleClassSkill(skill.name, newValue)}/>
-			<GridLabel size={6} justify={"left"} title={skill.name} />
-			<GridSink size={2} value={modPlus(totalSkillBonus)}/>
-			<AbilityModSink size={3} type={skill.ability}/>
-			<GridModSource size={2} value={skill.ranks} setValue={(newValue) => handleSkillRanks(skill.name, newValue)} />
-			<GridSink size={2} value={modPlus(skill.classSkill ? 3 : 0)} />
-			<GridModSource size={2} value={skill.ranks} setValue={(newValue) => handleRacialBonus(skill.name, newValue)} />
-			<GridModSource size={2} value={skill.ranks} setValue={(newValue) => handleTraitBonus(skill.name, newValue)} />
-			<GridModSource size={4} value={skill.ranks} setValue={(newValue) => handleMiscBonus(skill.name, newValue)} />
+			<GridLabel size={7} titleSize={"17px"} justify={"left"} title={skill.name} />
+			<GridSink size={2} value={totalSkillBonus}/>
+			<GridLabel size={2} titleSize={"20px"} justify={"center"} title={skill.ability} />
+			<AbilityModSink size={3} label={""} type={skill.ability}/>
+			<GridNumberSource size={2} value={skill.ranks} setValue={(newValue) => handleSkillRanks(skill.name, newValue)} />
+			<GridSink size={2} value={skill.classSkill ? 3 : 0} />
+			<GridNumberSource size={2} value={skill.ranks} setValue={(newValue) => handleRacialBonus(skill.name, newValue)} />
+			<GridNumberSource size={2} value={skill.ranks} setValue={(newValue) => handleTraitBonus(skill.name, newValue)} />
+			<GridNumberSource size={4} value={skill.ranks} setValue={(newValue) => handleMiscBonus(skill.name, newValue)} />
 		</GridRow>
 	)
 }

@@ -37,11 +37,29 @@ export const skillsSlice = createSlice({
 		},
 		setMiscBonus: (state, action: PayloadAction<{skillName: string, miscBonus: number}>) => {
 			state.skills[action.payload.skillName].miscBonus = action.payload.miscBonus;
+		},
+		setLanguages: (state, action: PayloadAction<string>) => {
+			state.languages = action.payload;
+		},
+		setXPTotal: (state, action: PayloadAction<number>) => {
+			state.totalXp = action.payload;
+		},
+		setXPNext: (state, action: PayloadAction<number>) => {
+			state.xpToNext = action.payload;
 		}
 	}
 });
 
-export const { setRanks, setClassSkill, setRacialBonus, setTraitBonus, setMiscBonus } = skillsSlice.actions;
+export const {
+	setRanks,
+	setClassSkill,
+	setRacialBonus,
+	setTraitBonus,
+	setMiscBonus,
+	setLanguages,
+	setXPTotal,
+	setXPNext
+} = skillsSlice.actions;
 
 export default skillsSlice.reducer;
 
