@@ -5,6 +5,7 @@ import AbilitiesSection from "./AbilitiesSection";
 import DefenseSection from "./DefenseSection";
 import OffenseSection from "./OffenseSection";
 import SkillsSection from "./SkillsSection";
+import FeatsSection from "./FeatsSection";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 			<DefenseSection/>
 			<OffenseSection/>
 			<SkillsSection/>
+			<FeatsSection/>
 		</div>
 	);
 }
