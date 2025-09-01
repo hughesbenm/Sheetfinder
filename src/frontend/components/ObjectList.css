@@ -1,0 +1,6 @@
+button.object_list_button {
+	background-color: var(--secondary-background);
+	border-color: var(--primary-border);
+	color: var(--text-primary);
+	margin-inline: 5px;
+}

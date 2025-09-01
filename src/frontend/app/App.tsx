@@ -1,4 +1,5 @@
 import "./App.css";
+import "../../colors.css"
 
 import GeneralSection from "./GeneralSection";
 import AbilitiesSection from "./AbilitiesSection";
